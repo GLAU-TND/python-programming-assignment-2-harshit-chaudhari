@@ -1,0 +1,44 @@
+#PROBLEM 1
+n=eval(input())
+a=min(t)[-1]
+b=[min(t)]
+n.remove(min(n))
+for i in n:
+    for j in n:
+        if a==j[0] and j[-1]!=b[0][0]:
+            b.append(j)
+            a=j[-1]
+            n.remove(j)
+            break
+b=b+n
+print(b)
+
+
+#PROBLEM 2
+t=eval(input())
+t=[str(i) for i in t]
+t.sort()
+b=''
+for i in range(len(t)-1):
+    if t[i][0]==t[i+1][0] and len(t[i])<len(t[i+1]):
+        a=t[i]
+        t[i]=t[i+1]
+        t[i+1]=a
+for i in range(len(t)-1,-1,-1):
+    b=b+t[i]
+print(int(b))
+
+
+#PROBLEM 3
+n=int(input())
+m=bin(n)
+a=1
+b=0
+for i in range(len(m)-3):
+    if m[i+2]==m[i+3]:
+        a=a+1
+    else:
+        b=max(b,a)
+        a=1
+        continue
+print(b)
